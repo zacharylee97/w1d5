@@ -6,6 +6,9 @@ var money = process.argv[2];
 
 function poppinBottles(money) {
   var totalRedeemed = parseInt(money/2);
+  var totalEarnedThroughBottles = 0;
+  var totalEarnedThroughCaps = 0;
+
   var bottlesOfPop = totalRedeemed;
   var emptyBottles = 0;
   var caps = 0;
@@ -22,6 +25,7 @@ function poppinBottles(money) {
       emptyBottles -= redeemed * 2;
       bottlesOfPop += redeemed;
       totalRedeemed += redeemed;
+      totalEarnedThroughBottles += redeemed;
       }
 
     //Trade caps
@@ -30,10 +34,18 @@ function poppinBottles(money) {
       caps -= redeemed * 4;
       bottlesOfPop += redeemed;
       totalRedeemed += redeemed;
+      totalEarnedThroughCaps += redeemed;
     }
   }
   while (bottlesOfPop > 0);
-  return totalRedeemed;
+
+  var output = "Total Bottles: " + totalRedeemed + "\n";
+  output += "Remaining Bottles: " + emptyBottles + "\n";
+  output += "Remaining Caps: " + caps + "\n";
+  output += "Total Earned: \n";
+  output += "  Bottles: " + totalEarnedThroughBottles + "\n";
+  output += "  Caps: " + totalEarnedThroughCaps;
+  return output;
 }
 
 console.log(poppinBottles(money));
