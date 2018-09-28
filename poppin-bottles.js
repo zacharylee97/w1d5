@@ -2,7 +2,7 @@
 // For every four bottle caps, you can get one free full bottle of pop
 // Each bottle of pop costs $2 to purchase
 
-
+var money = process.argv[2];
 
 function poppinBottles(money) {
   var totalRedeemed = parseInt(money/2);
@@ -36,7 +36,4 @@ function poppinBottles(money) {
   return totalRedeemed;
 }
 
-console.log(poppinBottles(10));
-console.log(poppinBottles(20));
-console.log(poppinBottles(30));
-console.log(poppinBottles(40));
+console.log(poppinBottles(money));
